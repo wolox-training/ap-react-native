@@ -1,0 +1,35 @@
+.Home {
+  text-align: center;
+  margin: 15px;
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: thin;
+}
+
+.Header {
+  background-color: #FFFFFF;
+  box-shadow: 0 5px 5px #DDDDDD;
+  color: white;
+  height: 96px;
+}
+
+.Header-logo {
+  height: 42px;
+  width: 182px;
+  float: left;
+  position: relative;
+  top: 23px;
+  left: 34px;
+}
+
+.Header-menu {
+  position: relative;
+  float: right;
+  top: 26px;
+  right: 49px;
+}
+
+.Header-button {
+  margin-left: 15px;
+  margin-right: 15px;
+}
