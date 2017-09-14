@@ -1,27 +1,23 @@
 .Header {
   background-color: #FFFFFF;
-  box-shadow: 0 5px 5px #DDDDDD;
+  box-shadow: 0 5px 5px #DDD;
   color: white;
   height: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Header-logo {
   height: 42px;
   width: 182px;
-  float: left;
-  position: relative;
-  top: 23px;
-  left: 34px;
+  margin: 0 20px;
 }
 
 .Header-menu {
-  position: relative;
-  float: right;
-  top: 26px;
-  right: 49px;
-}
-
-.Header-button {
-  margin-left: 15px;
-  margin-right: 15px;
+  width: 182px;
+  margin: 0 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
