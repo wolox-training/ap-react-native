@@ -3,6 +3,7 @@ import wlogo from '../../../assets/Header/wbooks_logo.svg';
 import icon_notifications from '../../../assets/Header/notifications.svg';
 import icon_add_book from '../../../assets/Header/add_book.svg';
 import icon_user from '../../../assets/Header/user_dummy.png';
+import './styles.css';
 
 function Header () {
   return (
