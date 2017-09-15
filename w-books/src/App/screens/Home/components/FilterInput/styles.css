@@ -1,0 +1,12 @@
+.Home-filter-input {
+  width: 238px;
+  height: 38px;
+  background-color: #F4F4F4;
+  font-size:14px;
+  border-style: none;
+  text-indent: 12px;
+}
+.Home-filter-input::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: lighter;
+}

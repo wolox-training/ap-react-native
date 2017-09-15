@@ -1,0 +1,12 @@
+.Home-filter-selector {
+  width: 238px;
+  height: 38px;
+  margin-right: 28px;
+  background-color: #F4F4F4;
+  font-size:14px;
+  border-style: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  text-indent: 12px;
+}
