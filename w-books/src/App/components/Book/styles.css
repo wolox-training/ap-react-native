@@ -1,0 +1,27 @@
+.Book {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin: 26px 35px;
+  width: 128px
+}
+
+.Book-title {
+  margin: 11px 0 0;
+  font-size:14px;
+  color:#000;
+  letter-spacing:0px;
+}
+
+.Book-author {
+  margin: 6px 0 0;
+  font-size:12px;
+  color:#4a4a4a;
+  font-weight: lighter;
+  letter-spacing:0px;
+}
+
+.Book-image {
+  height: 182px;
+  width: 128px;
+}
