@@ -8,4 +8,5 @@
 }
 .Home-filter-input::-webkit-input-placeholder {
   font-style: italic;
+  font-weight: lighter;
 }
