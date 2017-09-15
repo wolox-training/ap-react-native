@@ -1,9 +1,9 @@
 import React from 'react';
 import Book from '../Book/index.js'
+import Proptypes from 'prop-types';
 import './styles.css';
 
-function BookGrid(props) {
-  let books = props.books;
+function BookGrid({books}) {
   return (
     <div className="BookGrid">
      {books.map(({ id, title, author, image_url }) =>
@@ -11,6 +11,17 @@ function BookGrid(props) {
      )}
     </div>
   );
+}
+
+BookGrid.propTypes = {
+  book: Proptypes.arrayOf(
+    Proptypes.shape({
+      id: Proptypes.number,
+      title: Proptypes.string,
+      author: Proptypes.string,
+      image_url: Proptypes.string
+    })
+  )
 }
 
 export default BookGrid
