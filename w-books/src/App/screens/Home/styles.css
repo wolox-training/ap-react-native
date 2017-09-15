@@ -9,5 +9,15 @@
 
 .Home-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Home-filter-bar {
+  height: 110px;
+  margin-top: 15px;
+  width: 725px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
