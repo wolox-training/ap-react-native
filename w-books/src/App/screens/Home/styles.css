@@ -1,7 +1,13 @@
 .Home {
-  text-align: center;
   margin: 15px;
   border-color: #DDD;
   border-style: solid;
   border-width: thin;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.Home-container {
+  display: flex;
+  justify-content: center;
 }

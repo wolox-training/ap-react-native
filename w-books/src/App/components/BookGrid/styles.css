@@ -1,0 +1,5 @@
+.BookGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+}
