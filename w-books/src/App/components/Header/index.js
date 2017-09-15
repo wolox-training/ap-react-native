@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import wlogo from '../../../assets/Header/wbooks_logo.svg';
 import icon_notifications from '../../../assets/Header/notifications.svg';
 import icon_add_book from '../../../assets/Header/add_book.svg';
