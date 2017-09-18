@@ -1,4 +1,10 @@
 .BookDetail {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.BookDetail-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
 }

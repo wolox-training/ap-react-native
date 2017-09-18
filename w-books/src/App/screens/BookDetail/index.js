@@ -10,9 +10,11 @@ function BookDetail({ match }) {
   let book = BookList.find((element) => { return element.id == match.params.bookId})
   return (
     <div className="BookDetail">
-      <Information book={book}/>
-      <Sugestions />
-      <Comments />
+      <div className="BookDetail-container">
+        <Information book={book}/>
+        <Sugestions />
+        <Comments />
+      </div>
     </div>
   );
 }
