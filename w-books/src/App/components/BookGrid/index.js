@@ -7,7 +7,7 @@ function BookGrid({books}) {
   return (
     <div className="BookGrid">
      {books.map(book =>
-       <Book book={book}/>
+       <Book key={book.id} book={book}/>
      )}
     </div>
   );
