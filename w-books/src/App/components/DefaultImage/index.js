@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultimage from '../../../../../assets/Book/default_book.svg';
+import defaultimage from '../../../assets/Book/default_book.svg';
 import './styles.css';
 
 function DefaultImage() {

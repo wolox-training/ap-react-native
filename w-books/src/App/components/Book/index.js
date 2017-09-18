@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom'
 import './styles.css';
-import DefaultImage from './components/DefaultImage/index.js'
+import DefaultImage from '../DefaultImage/index.js'
 
 function Book(props) {
   return (
