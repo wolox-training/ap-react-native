@@ -1,15 +1,14 @@
 import React from 'react';
-import DefaultImage from '../../../../components/DefaultImage/index.js'
 import RentButton from './components/RentButton/index.js'
 import './styles.css';
+import Cover from '../../../../components/Cover/index.js'
 
 function Information({book}) {
   return (
     <div className="Information">
-      { book.image_url !== null ?
-        <img src={book.image_url} className="Information-image" alt="Portada" /> :
-        <DefaultImage />
-      }
+      <div className="Information-cover">
+        <Cover imageUrl={book.image_url} height="272" width="171" />
+      </div>
       <div className="Information-container">
         <h2 className="Information-title">{book.title}</h2>
         <h3 className="Information-author">{book.author}</h3>

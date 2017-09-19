@@ -1,5 +1,6 @@
 .Information {
   display: flex;
+  justify-content: space-between;
 }
 .Information-image {
   height: 272px;

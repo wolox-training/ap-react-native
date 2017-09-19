@@ -3,7 +3,6 @@
   flex-direction: column;
   align-content: flex-start;
   margin: 26px 35px;
-  width: 128px
 }
 
 .Book-title {
@@ -19,9 +18,4 @@
   color:#4a4a4a;
   font-weight: lighter;
   letter-spacing:0px;
-}
-
-.Book-image {
-  height: 182px;
-  width: 128px;
 }

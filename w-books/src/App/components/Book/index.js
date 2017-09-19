@@ -6,15 +6,13 @@ import {
 } from 'react-router-dom'
 import './styles.css';
 import DefaultImage from '../DefaultImage/index.js'
+import Cover from '../Cover/index.js'
 
 function Book(props) {
   return (
     <Link to={`book/${props.book.id}`}>
       <div className="Book" >
-        { props.book.image_url !== null ?
-          <img src={props.book.image_url} className="Book-image" alt="Portada" /> :
-          <DefaultImage />
-        }
+        <Cover height="182" width="128" imageUrl={props.book.image_url}/>
         <h2 className="Book-title">{props.book.title}</h2>
         <h2 className="Book-author">{props.book.author}</h2>
       </div>
