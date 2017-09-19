@@ -1,0 +1,41 @@
+.NewComment {
+  display: flex;
+  margin-top: 19px;
+}
+.NewComment-image {
+  height: 40px;
+  width: 40px;
+}
+.NewComment-info-container {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.NewComment-title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: bold;
+}
+.NewComment-input {
+  margin: 11px 0 11px 0;
+  font-size: 14px;
+  color: #000000;
+  font-weight: lighter;
+  width: 667px;
+  height: 75px;
+  font-size:14px;
+  border-style:solid;
+  border-color: #979797;
+  border-width: thin;
+  resize: none;
+}
+.NewComment-button {
+  width: 192px;
+  height: 38px;
+  background-color: #A5CD3A;
+  border-style: none;
+  color: #FFF;
+  font-size: 20px;
+}

@@ -5,6 +5,6 @@
 .Comments-booklist {
   display: flex;
 }
-.Comments-cover {
+.Comments-cover,.Comments-add {
   margin: 0 27px;
 }

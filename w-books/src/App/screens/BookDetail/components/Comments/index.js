@@ -1,11 +1,15 @@
 import React from 'react';
 import './styles.css';
 import Comment from './components/Comment/index.js'
+import NewComment from './components/NewComment/index.js'
 
 function Comments({comments}) {
   return (
     <div className="Comments">
-      <h2>Comments</h2>
+      <h2>Comentarios</h2>
+      <div className="Comments-add">
+        <NewComment />
+      </div>
       <div className="Comments-container">
         {comments.map(comment =>
           <div className="Sugestions-cover">
