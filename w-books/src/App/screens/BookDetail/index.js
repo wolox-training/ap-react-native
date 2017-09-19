@@ -12,11 +12,15 @@ function BookDetail({ match }) {
     <div className="BookDetail">
       <div className="BookDetail-container">
         <Information book={book}/>
-        <Sugestions />
+        <Sugestions books={getSuggestions()}/>
         <Comments />
       </div>
     </div>
   );
+}
+
+function getSuggestions() {
+  return BookList.slice(0,4)
 }
 
 export default BookDetail;

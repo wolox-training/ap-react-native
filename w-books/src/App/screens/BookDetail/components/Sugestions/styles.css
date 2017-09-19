@@ -1,3 +1,9 @@
-.Sugestions {
-
+.Sugestions h2{
+  color: #A5CD3A
+}
+.Sugestions-booklist {
+  display: flex;
+}
+.Sugestions-cover {
+  margin: 0 27px;
 }
