@@ -3,6 +3,7 @@
   flex-direction: column;
   align-content: flex-start;
   margin: 26px 35px;
+  width: 128px;
 }
 
 .Book-title {
