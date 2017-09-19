@@ -5,9 +5,9 @@
 .NewComment-image {
   height: 40px;
   width: 40px;
+  margin-right: 16px;
 }
 .NewComment-info-container {
-  margin-left: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
