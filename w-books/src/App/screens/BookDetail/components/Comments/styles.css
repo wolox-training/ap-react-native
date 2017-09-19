@@ -1,0 +1,10 @@
+.Comments h2{
+  color: #A5CD3A;
+  margin: 0;
+}
+.Comments-booklist {
+  display: flex;
+}
+.Comments-cover,.Comments-add {
+  margin: 0 27px;
+}

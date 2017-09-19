@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/index.js';
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
-import BookList from './dummy-books.json';
+import BookList from '../../../assets/dummy-books.json';
 import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
@@ -36,14 +35,13 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Header />
         <div className="Home-container">
           <div className="Home-filter-bar">
             <FilterSelector onChange={this.select} />
             <FilterInput onChange={this.filter}/>
             <SearchButton onClick={this.submit}/>
           </div>
-          <BookGrid books={this.state.bookList} />
+          <BookGrid books={this.state.bookList}/>
         </div>
       </div>
     );

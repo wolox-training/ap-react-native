@@ -1,13 +1,17 @@
-.DefaultImage {
-  height: 182px;
+.Cover {
   width: 128px;
+  height: 182px;
   background-color: #D8D8D8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.DefaultImage-logo {
-  height: 75px;
-  width: 75px;
+.Cover-image {
+  width: 128px;
+  height: 182px;
+}
+
+.Cover-default {
+  width: 60%;
 }
