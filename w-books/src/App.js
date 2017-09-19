@@ -5,20 +5,17 @@ import {
   Link
 } from 'react-router-dom'
 import Header from './App/components/Header/index.js';
-import Home from './App/screens/Home/index.js'
-import BookDetail from './App/screens/BookDetail';
+import AppRoutes from './config/routes.js';
+
 import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <Router>
         <div className="App">
             <Header />
-            <Route path="/dashboard" component={Home}/>
-            <Route path="/book/:bookId" component={BookDetail}/>
+            <AppRoutes />
         </div>
-      </Router>
     );
   }
 }
