@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 47px;
+  margin: 47px 0 47px 0;
 }
 .BookDetail-container {
   display: flex;
