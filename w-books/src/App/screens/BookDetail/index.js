@@ -5,6 +5,7 @@ import Comments from  './components/Comments/index.js';
 import Information from  './components/Information/index.js';
 import Sugestions from  './components/Sugestions/index.js';
 import BookList from '../../../assets/dummy-books.json';
+import CommentList from '../../../assets/dummy-comments.json';
 
 function BookDetail({ match }) {
   let book = BookList.find((element) => { return element.id == match.params.bookId})
@@ -13,7 +14,7 @@ function BookDetail({ match }) {
       <div className="BookDetail-container">
         <Information book={book}/>
         <Sugestions books={getSuggestions()}/>
-        <Comments />
+        <Comments comments={CommentList}/>
       </div>
     </div>
   );

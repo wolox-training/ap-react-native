@@ -1,0 +1,33 @@
+.Comment {
+  display: flex;
+  margin-top: 19px;
+}
+.Comment-image {
+  height: 40px;
+  width: 40px;
+}
+.Comment-info-container {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Comment-user {
+  margin: 0;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: bold;
+}
+.Comment-date {
+  margin: 0;
+  font-size: 12px;
+  line-height: 19px;
+  font-weight: lighter;
+  color: #4A4A4A;
+}
+.Comment-text {
+  margin: 11px 0 0 0;
+  font-size: 14px;
+  color: #999999;
+  font-weight: lighter;
+}

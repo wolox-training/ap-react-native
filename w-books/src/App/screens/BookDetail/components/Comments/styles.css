@@ -1,3 +1,9 @@
-.Comments {
-
+.Comments h2{
+  color: #A5CD3A
+}
+.Comments-booklist {
+  display: flex;
+}
+.Comments-cover {
+  margin: 0 27px;
 }
