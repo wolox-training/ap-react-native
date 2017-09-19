@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import './styles.css';
 import Header from '../../components/Header/index.js';
 import Comments from  './components/Comments/index.js';
@@ -11,6 +16,7 @@ function BookDetail({ match }) {
   let book = BookList.find((element) => { return element.id == match.params.bookId})
   return (
     <div className="BookDetail">
+      <Link className="BookDetail-back" to={`../dashboard`}><p>&lt;-Volver</p></Link>
       <div className="BookDetail-container">
         <Information book={book}/>
         <div className="BookDetail-separator" />

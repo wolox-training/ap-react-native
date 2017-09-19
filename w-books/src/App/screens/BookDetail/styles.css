@@ -2,12 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 47px 0 47px 0;
+}
+.BookDetail-back {
+  align-self: flex-start;
+  margin: 24px 34px;
+  font-size: 12px;
+  line-height: 19px;
+  color: #999;
 }
 .BookDetail-container {
   display: flex;
   flex-direction: column;
   width: 800px;
+  margin-bottom: 34px;
 }
 .BookDetail-separator {
   background-color: #98D6F7;
