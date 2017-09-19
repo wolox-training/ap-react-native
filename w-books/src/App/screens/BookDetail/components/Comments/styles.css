@@ -1,5 +1,6 @@
 .Comments h2{
-  color: #A5CD3A
+  color: #A5CD3A;
+  margin: 0;
 }
 .Comments-booklist {
   display: flex;

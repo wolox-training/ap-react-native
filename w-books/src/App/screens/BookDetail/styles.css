@@ -9,3 +9,9 @@
   flex-direction: column;
   width: 800px;
 }
+.BookDetail-separator {
+  background-color: #98D6F7;
+  width: 800px;
+  height: 2px;
+  margin: 31px 0 31px 0;
+}

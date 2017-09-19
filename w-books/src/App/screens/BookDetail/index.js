@@ -13,7 +13,9 @@ function BookDetail({ match }) {
     <div className="BookDetail">
       <div className="BookDetail-container">
         <Information book={book}/>
+        <div className="BookDetail-separator" />
         <Sugestions books={getSuggestions()}/>
+        <div className="BookDetail-separator" />
         <Comments comments={CommentList}/>
       </div>
     </div>
