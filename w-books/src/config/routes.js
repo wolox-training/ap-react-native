@@ -45,7 +45,7 @@ function AppRoutes() {
       {isAuthenticated() ? <Header /> : null }
       <Router>
         <div>
-        <Redirect to={{pathname: '/login'}}/>
+        <Route path="/" component={Login}/>
         <PublicRoute path="/login" component={Login}/>
         <PrivateRoute path="/dashboard" component={Home}/>
         <PrivateRoute path="/book/:bookId" component={BookDetail}/>
