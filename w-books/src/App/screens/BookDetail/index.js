@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './styles.css';
 import Comments from  './components/Comments/index.js';
 import Information from  './components/Information/index.js';
