@@ -12,9 +12,9 @@ function AppRoutes() {
   return (
       <Router>
         <div>
-        <Route path="/" component={Login}/>
-          <Route path="/dashboard" component={Home}/>
-          <Route path="/book/:bookId" component={BookDetail}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/dashboard" component={Home}/>
+        <Route path="/book/:bookId" component={BookDetail}/>
         </div>
       </Router>
   );

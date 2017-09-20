@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './styles.css';
+import Authenticate from '../../../services/AuthService.js'
 
 class Login extends Component {
   state = {email: "", password: ""}
@@ -10,7 +12,14 @@ class Login extends Component {
     this.setState({password: e.target.value})
   }
   submit = (e) => {
-    console.log("Email: " + this.state.email + ", Password: " + this.state.password)
+    Authenticate({email: this.state.email,
+                  password: this.state.password })
+                  .then(() => {
+                    this.props.history.push('/dashboard')
+                  })
+                  .catch((error) => {
+                    alert (error);
+                  });
   }
   validateEmail = () => {
     return (this.state.email.length > 0 && this.state.email.includes("@"))
@@ -41,4 +50,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
