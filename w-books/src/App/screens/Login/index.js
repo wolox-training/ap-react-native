@@ -16,7 +16,12 @@ class Login extends Component {
     return (this.state.email.length > 0 && this.state.email.includes("@"))
   }
   validatePassword = () => {
-    return (this.state.password.length >= 8 && this.state.password.length <= 52)
+    if (this.state.password.length >= 8 && this.state.password.length <= 52) {
+      const regLetters = new RegExp("[^a-z|^A-Z]");
+      const regNumbers = new RegExp("[^0-9]");
+      return regLetters.test(this.state.password) && regNumbers.test(this.state.password);
+    }
+    return false
   }
   render() {
     const inputValid = this.validateEmail() && this.validatePassword()
