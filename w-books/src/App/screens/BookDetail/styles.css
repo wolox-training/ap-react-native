@@ -3,9 +3,6 @@
   flex-direction: column;
   align-items: center;
 }
-.BookDetail .Header {
-  align-self: stretch;
-}
 .BookDetail-back {
   align-self: flex-start;
   margin: 24px 34px;

@@ -8,6 +8,7 @@ import {
 import Home from '../App/screens/Home/index.js'
 import BookDetail from '../App/screens/BookDetail/index.js';
 import Login from '../App/screens/Login/index.js';
+import Header from '../App/components/Header/index.js';
 
 const isAuthenticated = () => {
   return localStorage.getItem('access_token') !== null;
@@ -41,6 +42,8 @@ const PublicRoute = ({ component: Component, ...rest }) => (
 
 function AppRoutes() {
   return (
+    <div>
+      {isAuthenticated() ? <Header /> : null }
       <Router>
         <div>
         <Redirect to={{pathname: '/login'}}/>
@@ -49,6 +52,7 @@ function AppRoutes() {
         <PrivateRoute path="/book/:bookId" component={BookDetail}/>
         </div>
       </Router>
+    </div>
   );
 }
 
