@@ -8,7 +8,7 @@ import BookList from '../../../assets/dummy-books.json';
 import CommentList from '../../../assets/dummy-comments.json';
 
 function BookDetail({ match }) {
-  let book = BookList.find((element) => { return element.id == match.params.bookId})
+  let book = BookList.find((element) => { return element.id === match.params.bookId})
   return (
     <div className="BookDetail">
       <Link className="BookDetail-back" to={`../dashboard`}><p>&lt;-Volver</p></Link>
