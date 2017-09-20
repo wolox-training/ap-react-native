@@ -1,15 +1,14 @@
 import axios from '../config/api.js'
 
 function Authenticate(props) {
-  var sessionStorage = window['localStorage']
-
+  var sessionStorage = window['localStorage'];
   return axios.post('users/sessions', {
     "email": props.email,
     "password": props.password
   })
-  .then(function (response) {
+  .then((response) => {
     axios.defaults.headers.common['Authorization'] = response.access_token;
-    localStorage.setItem('bgcolor', response.access_token);
+    localStorage.setItem('access_token', response.access_token);
   })
 }
 
