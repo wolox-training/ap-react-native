@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
 }
+.Login-logo {
+  margin: 24px;
+}
 .Login-container {
   margin: 24px;
   width: 400px;

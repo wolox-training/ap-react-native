@@ -5,6 +5,7 @@ import BookList from '../../../assets/dummy-books.json';
 import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
+import Header from '../../components/Header/index.js';
 
 class Home extends Component {
   state = {filterType: "Author", filterInput: null, bookList: BookList}
@@ -35,6 +36,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
+        <Header />
         <div className="Home-container">
           <div className="Home-filter-bar">
             <FilterSelector onChange={this.select} />

@@ -16,6 +16,7 @@ function BookDetail({ match }) {
   let book = BookList.find((element) => { return element.id == match.params.bookId})
   return (
     <div className="BookDetail">
+      <Header />
       <Link className="BookDetail-back" to={`../dashboard`}><p>&lt;-Volver</p></Link>
       <div className="BookDetail-container">
         <Information book={book}/>
