@@ -4,8 +4,8 @@ import Home from '../App/screens/Home/index.js'
 import BookDetail from '../App/screens/BookDetail/index.js';
 import Login from '../App/screens/Login/index.js';
 import Header from '../App/components/Header/index.js';
-import PublicRoute from './components/PublicRoute/index.js'
-import PrivateRoute from './components/PrivateRoute/index.js'
+import PublicRoute from './PublicRoute.js'
+import PrivateRoute from './PrivateRoute.js'
 
 const isAuthenticated = () => {
   return localStorage.getItem('access_token') !== null;
