@@ -1,30 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './styles.css';
-import Comments from  './components/Comments/index.js';
-import Information from  './components/Information/index.js';
-import Sugestions from  './components/Sugestions/index.js';
 import BookList from '../../../assets/dummy-books.json';
 import CommentList from '../../../assets/dummy-comments.json';
+import BookDetail from './layout.js'
 
-function BookDetail({ match }) {
-  let book = BookList.find((element) => { return element.id === match.params.bookId})
-  return (
-    <div className="BookDetail">
-      <Link className="BookDetail-back" to={`../dashboard`}><p>&lt;-Volver</p></Link>
-      <div className="BookDetail-container">
-        <Information book={book}/>
-        <div className="BookDetail-separator" />
-        <Sugestions books={getSuggestions()}/>
-        <div className="BookDetail-separator" />
-        <Comments comments={CommentList}/>
-      </div>
-    </div>
-  );
+function BookDetailContainer({ match }) {
+  console.log("BookList: " + BookList)
+  console.log("match.params.bookId" + match.params.bookId)
+  let book = BookList.find((element) => { return element.id == match.params.bookId})
+  return <BookDetail book={book}
+                     suggestions={getSuggestions()}
+                     comments={CommentList} />
 }
 
 function getSuggestions() {
   return BookList.slice(0,4)
 }
 
-export default BookDetail;
+export default BookDetailContainer;
