@@ -13,7 +13,7 @@ function Comments({comments}) {
       </div>
       <div className="Comments-container">
         {comments.map(comment =>
-          <div className="Sugestions-cover">
+          <div key={comment.id} className="Sugestions-cover">
             <Comment comment={comment}/>
           </div>
         )}
