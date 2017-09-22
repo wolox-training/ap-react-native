@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import './styles.css';
-import BookList from '../../../assets/dummy-books.json';
-import CommentList from '../../../assets/dummy-comments.json';
+import { getBook, getSuggestions, getComments} from '../../../services/BookService.js';
 import BookDetail from './layout.js'
 
 class BookDetailContainer extends Component {
-  state = { bookId: this.props.match.params.bookId, book: null }
+  state = { bookId: this.props.match.params.bookId,
+            book: null,
+            suggestions: null,
+            comments: null }
   componentWillMount() {
-    const book = BookList.find((element) => { return element.id == this.state.bookId})
-    this.setState({book: book})
+    getBook(this.state.bookId).then((component) => {
+      this.setState({book: component})
+    })
+    getSuggestions(this.state.bookId).then((list) => {
+      this.setState({suggestions: list})
+    })
+    getComments(this.state.bookId).then((list) => {
+      this.setState({comments: list})
+    })
   }
   render() {
     return <BookDetail book={this.state.book}
-                       suggestions={getSuggestions()}
-                       comments={CommentList} />
+                       suggestions={this.state.suggestions}
+                       comments={this.state.comments} />
   }
-}
-
-function getSuggestions() {
-  return BookList.slice(0,4)
 }
 
 export default BookDetailContainer;

@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
-import BookList from '../../../assets/dummy-books.json';
 import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
+import { getBooks } from '../../../services/BookService.js';
 
 class Home extends Component {
-  state = {filterType: "Author", filterInput: null, bookList: BookList}
+  state = {filterType: "Author", filterInput: null, filteredList: [], bookList: []}
+  componentWillMount() {
+    getBooks().then((books) => {
+      this.setState({bookList: books, filteredList: books})
+    })
+  }
   select = (e) => {
     this.setState({filterType: e.target.value})
   }
@@ -16,17 +21,17 @@ class Home extends Component {
   }
   submit = (e) => {
     const books = this.getFilteredBookList();
-    this.setState({bookList: books})
+    this.setState({filteredList: books})
   }
   getFilteredBookList = () => {
-    let books = BookList
+    let books = this.state.bookList
     if (this.state.filterInput != null){
       if (this.state.filterType === "Author")
       {
-        books = BookList.filter( book => book.author.toLowerCase()
+        books = books.filter( book => book.author.toLowerCase()
         .includes(this.state.filterInput.toLowerCase()))
       } else {
-        books = BookList.filter( book => book.title.toLowerCase()
+        books = books.filter( book => book.title.toLowerCase()
         .includes(this.state.filterInput.toLowerCase()))
       }
     }
@@ -41,7 +46,7 @@ class Home extends Component {
             <FilterInput onChange={this.filter}/>
             <SearchButton onClick={this.submit}/>
           </div>
-          <BookGrid books={this.state.bookList}/>
+          <BookGrid books={this.state.filteredList}/>
         </div>
       </div>
     );
