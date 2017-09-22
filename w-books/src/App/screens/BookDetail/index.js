@@ -6,12 +6,9 @@ import CommentList from '../../../assets/dummy-comments.json';
 import BookDetail from './layout.js'
 
 class BookDetailContainer extends Component {
-  constructor({match}) {
-    super()
-    this.state = { bookId: match.params.bookId, book: null }
-  }
+  state = { bookId: this.props.match.params.bookId, book: null }
   componentWillMount() {
-    let book = BookList.find((element) => { return element.id == this.state.bookId})
+    const book = BookList.find((element) => { return element.id == this.state.bookId})
     this.setState({book: book})
   }
   render() {
