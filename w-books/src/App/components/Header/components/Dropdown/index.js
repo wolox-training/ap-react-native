@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './styles.css';
 import icon_user from '../../../../../assets/Header/user_dummy.png';
-
+import {PERFIL, LOGOUT} from './strings.js'
 class Dropdown extends Component {
   state = {showDropdown: false}
   toggleMenu = () => {
@@ -20,8 +20,8 @@ class Dropdown extends Component {
         <img className="Dropbtn" src={icon_user} alt="User Icon" onClick={this.toggleMenu} />
         {this.state.showDropdown ?
           <ul className="Dropdown-content">
-            <li>Perfil</li>
-            <li onClick={this.props.onLogout}>Cerrar sesion</li>
+            <li>{PERFIL}</li>
+            <li onClick={this.props.onLogout}>{LOGOUT}</li>
           </ul>
           : null
         }
