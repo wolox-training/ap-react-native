@@ -7,7 +7,7 @@ function Information({book}) {
   return (
     <div className="Information">
       <div className="Information-cover">
-        <Cover imageUrl={book.image_url} height="272" width="191" />
+        <Cover imageUrl={book.image_url} height={272} width={191} />
       </div>
       <div className="Information-container">
         <h2 className="Information-title">{book.title}</h2>
