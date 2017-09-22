@@ -11,4 +11,8 @@ function Authenticate(props) {
   })
 }
 
+export function logOut() {
+  localStorage.removeItem('access_token');
+}
+
 export default Authenticate

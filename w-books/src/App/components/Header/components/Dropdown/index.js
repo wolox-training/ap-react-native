@@ -19,10 +19,11 @@ class Dropdown extends Component {
       <div className="Dropdown">
         <img className="Dropbtn" src={icon_user} alt="User Icon" onClick={this.toggleMenu} />
         {this.state.showDropdown ?
-          <div className="Dropdown-content">
-            <a href="#perfil">Perfil</a>
-            <a href="#logout">Cerrar sesion</a>
-          </div> : null
+          <ul className="Dropdown-content">
+            <li>Perfil</li>
+            <li onClick={this.props.onLogout}>Cerrar sesion</li>
+          </ul>
+          : null
         }
       </div>
     )
