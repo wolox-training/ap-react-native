@@ -3,10 +3,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
-
-const isAuthenticated = () => {
-  return localStorage.getItem('access_token') !== null;
-}
+import { isAuthenticated } from '../services/AuthService.js'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
