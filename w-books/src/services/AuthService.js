@@ -11,6 +11,10 @@ function Authenticate(props) {
   })
 }
 
+export function isAuthenticated() {
+  return localStorage.getItem('access_token') !== null;
+}
+
 export function logOut() {
   localStorage.removeItem('access_token');
 }

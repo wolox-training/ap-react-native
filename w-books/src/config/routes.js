@@ -6,10 +6,7 @@ import Login from '../App/screens/Login/index.js';
 import Header from '../App/components/Header/index.js';
 import PublicRoute from './PublicRoute.js'
 import PrivateRoute from './PrivateRoute.js'
-
-const isAuthenticated = () => {
-  return localStorage.getItem('access_token') !== null;
-}
+import { isAuthenticated } from '../services/AuthService.js'
 
 function AppRoutes() {
   return (
