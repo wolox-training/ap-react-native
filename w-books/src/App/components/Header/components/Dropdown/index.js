@@ -14,6 +14,9 @@ class Dropdown extends Component {
       }
     }
   }
+  componentWillUnmount() {
+    window.onclick = null
+  }
   render() {
     return (
       <div className="Dropdown">
