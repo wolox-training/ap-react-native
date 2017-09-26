@@ -11,11 +11,11 @@ function BookDetail({ book, suggestions, comments }) {
     <div className="BookDetail">
       <Link className="BookDetail-back" to={`../dashboard`}><p>{BACK}</p></Link>
       <div className="BookDetail-container">
-        <Information book={book}/>
+        {book ? <Information book={book}/> : null }
         <div className="BookDetail-separator" />
-        <Sugestions books={suggestions}/>
+        {suggestions ? <Sugestions books={suggestions}/> : null }
         <div className="BookDetail-separator" />
-        <Comments comments={comments}/>
+        {comments ? <Comments comments={comments}/> : null }
       </div>
     </div>
   );
