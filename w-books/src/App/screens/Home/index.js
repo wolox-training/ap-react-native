@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
 import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
-import { getBooks } from '../../../services/BookService.js';
+import { actionCreators as booksActions } from '../../../redux/books/actions.js'
 
 class Home extends Component {
-  state = {filterType: "Author", filterInput: null, filteredList: [], bookList: []}
+  state = {filterType: "Author", filterInput: null, filteredList: []}
   componentWillMount() {
-    getBooks().then((books) => {
-      this.setState({bookList: books, filteredList: books})
-    })
+    this.props.dispatch(booksActions.fetchBooks())
   }
   select = (e) => {
     this.setState({filterType: e.target.value})
@@ -24,7 +24,7 @@ class Home extends Component {
     this.setState({filteredList: books})
   }
   getFilteredBookList = () => {
-    let books = this.state.bookList
+    let books = this.props.bookList
     if (this.state.filterInput != null){
       if (this.state.filterType === "Author")
       {
@@ -53,4 +53,14 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.defaultProps = {
+  bookList: []
+};
+
+const mapStateToProps = (state) => ({
+  bookList: state.books.list
+})
+
+export default connect(
+  mapStateToProps,
+)(Home)
