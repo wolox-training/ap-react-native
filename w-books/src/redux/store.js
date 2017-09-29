@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory'
 import thunk from 'redux-thunk'
 import auth from './auth/reducer.js'
 import books from './books/reducer.js'
+import book from './book/reducer.js'
 
 export const history = createHistory()
 const middlewares = [routerMiddleware(history)];
@@ -17,6 +18,7 @@ const store = createStore(
   combineReducers({
     auth,
     books,
+    book,
     router: routerReducer
   }),
   composeEnhancers(...enhancers)
