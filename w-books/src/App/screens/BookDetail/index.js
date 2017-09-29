@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './styles.css';
-import { getBook, getSuggestions, getComments} from '../../../services/BookService.js';
 import BookDetail from './layout.js'
 import { actionCreators as bookActions } from '../../../redux/book/actions.js'
 

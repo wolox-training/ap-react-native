@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
 import FilterSelector from './components/FilterSelector/index.js';

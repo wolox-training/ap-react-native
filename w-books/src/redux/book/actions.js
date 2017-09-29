@@ -1,4 +1,3 @@
-import { push } from 'react-router-redux'
 import { getBook, getComments, getSuggestions } from '../../services/BookService.js'
 
 export const actionCreators = {
