@@ -1,4 +1,6 @@
-const auth = (state = [], action) => {
+const initialState = { loading: false, token: null }
+
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -15,6 +17,11 @@ const auth = (state = [], action) => {
       return {
         ...state,
         loading: false
+      }
+    case 'LOGOUT':
+      return {
+        ...state,
+        token: null
       }
     default:
       return state

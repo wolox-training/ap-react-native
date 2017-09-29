@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux'
-import Authenticate from '../../services/AuthService.js'
+import Authenticate, { logOut as logOutService } from '../../services/AuthService.js'
 
 export const actionCreators = {
   login({email, password}) {
@@ -29,6 +29,13 @@ export const actionCreators = {
     return {
       type: 'LOGIN_FAILURE',
       payload: { error }
+    };
+  },
+  logOut() {
+    return async dispatch => {
+      logOutService()
+      dispatch({ type: 'LOG_OUT' });
+      dispatch(push('/login'));
     };
   }
 };
