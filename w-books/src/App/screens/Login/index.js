@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux'
 import './styles.css';
-import Authenticate from '../../../services/AuthService.js'
+import { actionCreators as authActions } from '../../../redux/auth/actions.js'
 import Login from './layout.js'
 import {
   emailValidation,
@@ -17,14 +18,10 @@ class LoginContainer extends Component {
     this.setState({password: e.target.value})
   }
   submit = (e) => {
-    Authenticate({email: this.state.email,
-                  password: this.state.password })
-                  .then(() => {
-                    this.props.history.push('/dashboard')
-                  })
-                  .catch((error) => {
-                    alert (error);
-                  });
+    this.props.dispatch(
+      authActions.login({email: this.state.email,
+                         password: this.state.password})
+    )
   }
   render() {
     const inputValid = emailValidation(this.state.email) &&
@@ -36,4 +33,4 @@ class LoginContainer extends Component {
   }
 }
 
-export default withRouter(LoginContainer);
+export default withRouter(connect()(LoginContainer));
