@@ -8,7 +8,7 @@ import SearchButton from './components/SearchButton/index.js';
 import { actionCreators as booksActions } from '../../../redux/books/actions.js'
 
 class Home extends Component {
-  state = {filterType: "Author", filterInput: null, filteredList: []}
+  state = {filterType: "Author", filterInput: null}
   componentWillMount() {
     this.props.dispatch(booksActions.fetchBooks())
   }
@@ -19,22 +19,9 @@ class Home extends Component {
     this.setState({filterInput: e.target.value})
   }
   submit = (e) => {
-    const books = this.getFilteredBookList();
-    this.setState({filteredList: books})
-  }
-  getFilteredBookList = () => {
-    let books = this.props.bookList
-    if (this.state.filterInput != null){
-      if (this.state.filterType === "Author")
-      {
-        books = books.filter( book => book.author.toLowerCase()
-        .includes(this.state.filterInput.toLowerCase()))
-      } else {
-        books = books.filter( book => book.title.toLowerCase()
-        .includes(this.state.filterInput.toLowerCase()))
-      }
-    }
-    return books;
+    this.props.dispatch(
+      booksActions.filterBooks(this.state.filterType, this.state.filterInput)
+    )
   }
   render() {
     return (
@@ -45,7 +32,7 @@ class Home extends Component {
             <FilterInput onChange={this.filter}/>
             <SearchButton onClick={this.submit}/>
           </div>
-          <BookGrid books={this.state.filteredList}/>
+          <BookGrid books={this.props.filteredList}/>
         </div>
       </div>
     );
@@ -53,11 +40,13 @@ class Home extends Component {
 }
 
 Home.defaultProps = {
-  bookList: []
+  bookList: [],
+  filteredList: []
 };
 
 const mapStateToProps = (state) => ({
-  bookList: state.books.list
+  bookList: state.books.list,
+  filteredList: state.books.filteredList
 })
 
 export default connect(

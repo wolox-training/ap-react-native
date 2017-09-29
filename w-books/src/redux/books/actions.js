@@ -28,5 +28,12 @@ export const actionCreators = {
       type: 'FETCH_BOOKS_FAILURE',
       error
     };
+  },
+  filterBooks(filterType, filterInput) {
+    return {
+      type: 'FILTER_BOOKS',
+      filterType,
+      filterInput
+    };
   }
 };
