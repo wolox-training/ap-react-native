@@ -1,4 +1,5 @@
 import { AppRegistry, StyleSheet, Text, Image, View } from 'react-native';
+import { overBackgroundColor } from '../../../../shared/utils/colors.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,6 +13,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     borderRadius: 22,
     overflow: 'hidden',
+    backgroundColor: overBackgroundColor,
   },
   info: {
    flex: 1,
