@@ -1,4 +1,5 @@
 import { AppRegistry, StyleSheet, Text, Image, View } from 'react-native';
+import { messageColor, separatorColor } from '../../../../shared/utils/colors.js'
 
 const avatarSize = 44;
 
@@ -32,11 +33,11 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 14,
     textAlign: 'left',
-    color: '#999',
+    color: messageColor,
   },
   separator: {
     height: 1,
-    backgroundColor: '#CCC',
+    backgroundColor: separatorColor,
     marginRight: 10,
     marginLeft: 70,
   }
