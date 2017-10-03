@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, Text, View } from 'react-native';
+import { AppRegistry, FlatList, View } from 'react-native';
 import ContactCell from '../shared/components/ContactCell/index.js'
+import AddButton from '../shared/components/AddButton/index.js'
+import add_contact_icon from '../../shared/assets/add-contact.png'
 import styles from './styles.js'
 
 export default class ContactList extends Component {
@@ -20,6 +22,7 @@ export default class ContactList extends Component {
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
+      <AddButton imageSource={add_contact_icon} onPress={()=>{}}/>
       </View>
     );
   }

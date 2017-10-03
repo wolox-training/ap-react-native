@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, Text, View } from 'react-native';
+import { AppRegistry, FlatList, View } from 'react-native';
 import ContactCell from '../shared/components/ContactCell/index.js'
+import AddButton from '../shared/components/AddButton/index.js'
+import add_chat_icon from '../../shared/assets/add-chat.png'
 import styles from './styles.js'
 
 export default class ChatList extends Component {
@@ -20,6 +22,7 @@ export default class ChatList extends Component {
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
+      <AddButton imageSource={add_chat_icon} onPress={()=>{}}/>
       </View>
     );
   }
