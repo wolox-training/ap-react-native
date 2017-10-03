@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { mainColor, mainBackgroundColor } from './shared/utils/colors.js'
+import { mainColor, mainBackgroundColor } from '../../shared/utils/colors.js'
 
 const styles = StyleSheet.create({
   navbar: {

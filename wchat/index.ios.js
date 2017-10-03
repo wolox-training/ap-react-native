@@ -4,25 +4,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  View
-} from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import styles from './styles.js'
-import Home from './screens/Home/index.js'
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import App from './screens/App/index.js'
 
-const WChatApp = StackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: {
-      headerStyle: styles.navbar,
-      headerTitleStyle: styles.navtitle,
-    }
-  },
-});
-
-export default WChatApp
-
-AppRegistry.registerComponent('wchat', () => WChatApp);
+AppRegistry.registerComponent('wchat', () => App);
