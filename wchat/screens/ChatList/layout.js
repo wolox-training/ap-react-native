@@ -3,7 +3,7 @@ import { AppRegistry, FlatList, Text, View } from 'react-native';
 import ContactCell from '../shared/components/ContactCell/index.js'
 import styles from './styles.js'
 
-export default class ContactList extends Component {
+export default class ChatList extends Component {
   _keyExtractor = (item, index) => item.id;
   _renderItem = ({item}) => (
     <ContactCell
@@ -16,7 +16,7 @@ export default class ContactList extends Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={this.props.contacts}
+          data={this.props.chats}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />

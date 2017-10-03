@@ -6,9 +6,9 @@ export default class ContactCell extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.avatar} source={{uri: this.props.avatar}} />
+        <Image style={styles.avatar} source={{uri: this.props.avatarUrl}} />
         <View style={styles.info}>
-          <Text style={styles.name}>{this.props.username} </Text>
+          <Text style={styles.name}>{this.props.title} </Text>
           <Text style={styles.message}>Lorem ipsum dolor sit amet...</Text>
         </View>
       </View>
