@@ -7,18 +7,22 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
-import ContactList from './screens/ContactList/index.js'
+import { StackNavigator } from 'react-navigation';
+import styles from './styles.js'
+import Home from './screens/Home/index.js'
 
-export default class wchat extends Component {
-  render() {
-    return (
-      <ContactList />
-    );
-  }
-}
+const WChatApp = StackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      headerStyle: styles.navbar,
+      headerTitleStyle: styles.navtitle,
+    }
+  },
+});
 
-AppRegistry.registerComponent('wchat', () => wchat);
+export default WChatApp
+
+AppRegistry.registerComponent('wchat', () => WChatApp);
