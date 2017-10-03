@@ -6,14 +6,11 @@ export default class ContactCell extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.content}>
-          <Image style={styles.avatar} source={{uri: this.props.avatar}} />
-          <View style={styles.info}>
-            <Text style={styles.name}>{this.props.username} </Text>
-            <Text style={styles.message}>Lorem ipsum dolor sit amet...</Text>
-          </View>
+        <Image style={styles.avatar} source={{uri: this.props.avatar}} />
+        <View style={styles.info}>
+          <Text style={styles.name}>{this.props.username} </Text>
+          <Text style={styles.message}>Lorem ipsum dolor sit amet...</Text>
         </View>
-        <View style={styles.separator} />
       </View>
     );
   }

@@ -6,11 +6,10 @@ const avatarSize = 44;
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-  },
-  content: {
-   flex: 1,
    flexDirection: 'row',
-   marginVertical: 12,
+   alignItems: 'stretch',
+   alignContent: 'stretch',
+   height: 70,
   },
   avatar: {
     height: avatarSize,
@@ -18,11 +17,14 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     borderRadius: 22,
     overflow: 'hidden',
+    alignSelf: 'center',
   },
   info: {
    flex: 1,
-   marginLeft: 10,
+   marginHorizontal: 10,
    justifyContent: 'center',
+   borderBottomWidth: 1,
+   borderBottomColor: separatorColor,
   },
   name: {
     fontSize: 16,
@@ -34,12 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
     color: messageColor,
-  },
-  separator: {
-    height: 1,
-    backgroundColor: separatorColor,
-    marginRight: 10,
-    marginLeft: 70,
   }
 })
 
