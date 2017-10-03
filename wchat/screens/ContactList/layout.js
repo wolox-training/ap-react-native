@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, FlatList, Text, View } from 'react-native';
 import ContactCell from './components/ContactCell/index.js'
+import styles from './styles.js'
 
 export default class ContactList extends Component {
   _keyExtractor = (item, index) => item.id;
@@ -23,10 +24,3 @@ export default class ContactList extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  }
-})
