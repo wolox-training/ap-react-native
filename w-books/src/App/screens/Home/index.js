@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux'
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
 import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
-import { getBooks } from '../../../services/BookService.js';
+import { actionCreators as booksActions } from '../../../redux/books/actions.js'
+import { FILTER_TYPE } from './constants.js'
 
 class Home extends Component {
-  state = {filterType: "Author", filterInput: null, filteredList: [], bookList: []}
+  state = {filterType: FILTER_TYPE.AUTHOR, filterInput: null}
   componentWillMount() {
-    getBooks().then((books) => {
-      this.setState({bookList: books, filteredList: books})
-    })
+    this.props.dispatch(booksActions.fetchBooks())
   }
   select = (e) => {
     this.setState({filterType: e.target.value})
@@ -20,22 +20,9 @@ class Home extends Component {
     this.setState({filterInput: e.target.value})
   }
   submit = (e) => {
-    const books = this.getFilteredBookList();
-    this.setState({filteredList: books})
-  }
-  getFilteredBookList = () => {
-    let books = this.state.bookList
-    if (this.state.filterInput != null){
-      if (this.state.filterType === "Author")
-      {
-        books = books.filter( book => book.author.toLowerCase()
-        .includes(this.state.filterInput.toLowerCase()))
-      } else {
-        books = books.filter( book => book.title.toLowerCase()
-        .includes(this.state.filterInput.toLowerCase()))
-      }
-    }
-    return books;
+    this.props.dispatch(
+      booksActions.filterBooks(this.state.filterType, this.state.filterInput)
+    )
   }
   render() {
     return (
@@ -46,11 +33,28 @@ class Home extends Component {
             <FilterInput onChange={this.filter}/>
             <SearchButton onClick={this.submit}/>
           </div>
-          <BookGrid books={this.state.filteredList}/>
+          <BookGrid books={this.props.filteredList}/>
         </div>
       </div>
     );
   }
 }
 
-export default Home;
+Home.defaultProps = {
+  bookList: [],
+  filteredList: []
+};
+
+Home.propTypes = {
+  bookList: PropTypes.array,
+  filteredList: PropTypes.array
+};
+
+const mapStateToProps = (state) => ({
+  bookList: state.books.list,
+  filteredList: state.books.filteredList
+})
+
+export default connect(
+  mapStateToProps,
+)(Home)

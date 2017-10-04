@@ -8,6 +8,7 @@ function Authenticate(props) {
   .then((response) => {
     axios.defaults.headers.common['Authorization'] = response.data.access_token;
     localStorage.setItem('access_token', response.data.access_token);
+    return response.data.access_token
   })
 }
 

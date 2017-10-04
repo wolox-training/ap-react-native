@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './styles.css';
-import { getBook, getSuggestions, getComments} from '../../../services/BookService.js';
 import BookDetail from './layout.js'
+import { actionCreators as bookActions } from '../../../redux/book/actions.js'
 
 class BookDetailContainer extends Component {
-  state = { bookId: this.props.match.params.bookId,
-            book: null,
-            suggestions: null,
-            comments: null }
   componentWillMount() {
-    getBook(this.state.bookId).then((component) => {
-      this.setState({book: component})
-    })
-    getSuggestions(this.state.bookId).then((list) => {
-      this.setState({suggestions: list})
-    })
-    getComments(this.state.bookId).then((list) => {
-      this.setState({comments: list})
-    })
+    const bookId = this.props.match.params.bookId
+    this.props.dispatch(bookActions.fetchBook(bookId))
+    this.props.dispatch(bookActions.fetchComments(bookId))
+    this.props.dispatch(bookActions.fetchSuggestions(bookId))
   }
   render() {
-    return <BookDetail book={this.state.book}
-                       suggestions={this.state.suggestions}
-                       comments={this.state.comments} />
+    return <BookDetail book={this.props.book}
+                       suggestions={this.props.suggestions}
+                       comments={this.props.comments} />
   }
 }
 
-export default BookDetailContainer;
+BookDetailContainer.defaultProps = {
+  book: null,
+  suggestions: [],
+  comments: []
+};
+
+const mapStateToProps = (state) => ({
+  book: state.book.detail,
+  suggestions: state.book.suggestions,
+  comments: state.book.comments
+})
+
+export default connect(
+  mapStateToProps,
+)(BookDetailContainer)
