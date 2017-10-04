@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { mainBackgroundColor } from '../../shared/utils/colors.js'
+import { mainBackgroundColor } from '../../../../shared/utils/colors.js'
 
 const iconSize = 26;
 
