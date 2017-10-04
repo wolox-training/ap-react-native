@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import './styles.css';
 import BookGrid from  '../../components/BookGrid/index.js';
@@ -42,6 +42,11 @@ class Home extends Component {
 Home.defaultProps = {
   bookList: [],
   filteredList: []
+};
+
+Home.propTypes = {
+  bookList: PropTypes.array,
+  filteredList: PropTypes.array
 };
 
 const mapStateToProps = (state) => ({
