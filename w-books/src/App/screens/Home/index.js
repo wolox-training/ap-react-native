@@ -6,9 +6,10 @@ import FilterSelector from './components/FilterSelector/index.js';
 import FilterInput from './components/FilterInput/index.js';
 import SearchButton from './components/SearchButton/index.js';
 import { actionCreators as booksActions } from '../../../redux/books/actions.js'
+import { FILTER_TYPE } from './constants.js'
 
 class Home extends Component {
-  state = {filterType: "Author", filterInput: null}
+  state = {filterType: FILTER_TYPE.AUTHOR, filterInput: null}
   componentWillMount() {
     this.props.dispatch(booksActions.fetchBooks())
   }
