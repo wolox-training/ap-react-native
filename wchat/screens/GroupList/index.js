@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import groups from '../../shared/assets/groups.json';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import add_group_icon from '../../shared/assets/add-group.png';
 import GroupCell from './components/GroupCell/index.js'
 import ContactTable from '../shared/components/ContactTable/index.js'
+import { actionCreators as groupsActions } from '../../redux/groups/actions.js'
 
-export default class GroupListContainer extends Component {
+class GroupListContainer extends Component {
+  componentWillMount() {
+    this.props.dispatch(groupsActions.fetchGroups())
+  }
   renderItem = ({item}) => (
     <GroupCell
       id={item.id}
@@ -15,7 +20,7 @@ export default class GroupListContainer extends Component {
   render() {
     return (
       <ContactTable
-        data={groups}
+        data={this.props.groups}
         renderItem={this.renderItem}
         addIcon={add_group_icon}
         onAdd={()=>{}}
@@ -23,3 +28,19 @@ export default class GroupListContainer extends Component {
     );
   }
 }
+
+GroupListContainer.defaultProps = {
+  groups: []
+};
+
+GroupListContainer.propTypes = {
+  groups: PropTypes.array
+};
+
+const mapStateToProps = (state) => ({
+  groups: state.groups.list
+})
+
+export default connect(
+  mapStateToProps,
+)(GroupListContainer);
