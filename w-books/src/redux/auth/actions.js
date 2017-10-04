@@ -10,7 +10,7 @@ export const actionCreators = {
         Authenticate({email: email, password: password})
         .then((token) => {
           dispatch(push(PATH.DASHBOARD))
-          dispatch(actionCreators.loginSuccess(token));
+          dispatch(actionCreators.loginSuccess());
         })
         .catch((error) => {
           throw new Error(error);
@@ -20,16 +20,15 @@ export const actionCreators = {
       }
     };
   },
-  loginSuccess(token) {
+  loginSuccess() {
     return {
       type: ACTION.LOGIN_SUCCESS,
-      payload: { token }
     };
   },
   loginFailure(error) {
     return {
       type: ACTION.LOGIN_FAILURE,
-      payload: { error }
+      error: { error }
     };
   },
   logOut() {
