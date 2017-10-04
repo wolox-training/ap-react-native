@@ -6,6 +6,6 @@
 
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import App from './screens/App/index.js'
+import App from './screens/screens.js'
 
 AppRegistry.registerComponent('wchat', () => App);

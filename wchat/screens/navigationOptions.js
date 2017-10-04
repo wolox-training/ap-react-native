@@ -1,4 +1,4 @@
-import SearchButton from './components/SearchButton/index.js'
+import SearchButton from './shared/components/SearchButton/index.js'
 import styles from './styles.js'
 
 export function homeOptions() {

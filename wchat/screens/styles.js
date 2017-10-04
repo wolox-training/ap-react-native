@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { mainColor, mainBackgroundColor } from '../../shared/utils/colors.js'
+import { mainColor, mainBackgroundColor } from '../shared/utils/colors.js'
 
 const styles = StyleSheet.create({
   navbar: {
@@ -9,7 +9,10 @@ const styles = StyleSheet.create({
    color: mainBackgroundColor,
    fontSize: 24,
    fontWeight: 'bold',
- }
+ },
+ tabbar: {
+   backgroundColor: mainBackgroundColor,
+ },
 })
 
 export default styles

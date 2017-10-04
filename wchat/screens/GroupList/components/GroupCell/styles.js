@@ -1,6 +1,8 @@
 import { AppRegistry, StyleSheet, Text, Image, View } from 'react-native';
 import { overBackgroundColor } from '../../../../shared/utils/colors.js'
 
+const iconSize = 80;
+
 const styles = StyleSheet.create({
   container: {
    flex: 1,
@@ -8,8 +10,8 @@ const styles = StyleSheet.create({
    marginVertical: 12,
   },
   image: {
-    height: 80,
-    width: 80,
+    height: iconSize,
+    width: iconSize,
     marginLeft: 16,
     borderRadius: 22,
     overflow: 'hidden',

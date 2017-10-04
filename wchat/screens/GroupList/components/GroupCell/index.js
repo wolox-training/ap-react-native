@@ -4,7 +4,6 @@ import styles from './styles.js'
 
 export default class GroupCell extends Component {
   render() {
-    console.log("this.props.name" + this.props.name)
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={{uri: this.props.imageUrl}} />
