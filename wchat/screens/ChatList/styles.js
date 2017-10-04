@@ -6,11 +6,7 @@ const iconSize = 26;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: mainBackgroundColor,
-  },
-  icon: {
-   height: iconSize,
-   width: iconSize,
+    backgroundColor: mainBackgroundColor
   }
 })
 
