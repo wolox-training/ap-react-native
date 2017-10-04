@@ -1,25 +1,27 @@
+import { ACTION } from './constants.js'
+
 const initialState = {loading: false, list: []}
 
 const books = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_BOOKS':
+    case ACTION.FETCH_BOOKS:
       return {
         ...state,
         loading: true
       }
-    case 'FETCH_BOOKS_SUCCESS':
+    case ACTION.FETCH_BOOKS_SUCCESS:
       return {
         ...state,
         loading: false,
         list: action.books,
         filteredList: action.books
       }
-    case 'FETCH_BOOKS_FAILURE':
+    case ACTION.FETCH_BOOKS_FAILURE:
       return {
         ...state,
         loading: false
       }
-    case 'FILTER_BOOKS':
+    case ACTION.FILTER_BOOKS:
       let filteredList = state.list
       if (action.filterInput != null){
         if (action.filterType === "Author")

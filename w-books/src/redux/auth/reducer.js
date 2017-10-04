@@ -1,24 +1,26 @@
+import { ACTION } from './constants.js'
+
 const initialState = { loading: false, token: null }
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case ACTION.LOGIN:
       return {
         ...state,
         loading: true
       }
-    case 'LOGIN_SUCCESS':
+    case ACTION.LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
         token: action.token
       }
-    case 'LOGIN_FAILURE':
+    case ACTION.LOGIN_FAILURE:
       return {
         ...state,
         loading: false
       }
-    case 'LOGOUT':
+    case ACTION.LOGOUT:
       return {
         ...state,
         token: null

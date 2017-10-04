@@ -1,9 +1,10 @@
 import { getBook, getComments, getSuggestions } from '../../services/BookService.js'
+import { ACTION } from './constants.js'
 
 export const actionCreators = {
   fetchBook(bookId) {
     return async dispatch => {
-      dispatch({ type: 'FETCH_BOOK' });
+      dispatch({ type: ACTION.FETCH_BOOK });
       try {
         getBook(bookId)
         .then((bookDetail) => {
@@ -19,19 +20,19 @@ export const actionCreators = {
   },
   fetchBookSuccess(detail) {
     return {
-      type: 'FETCH_BOOK_SUCCESS',
+      type: ACTION.FETCH_BOOK_SUCCESS,
       detail
     };
   },
   fetchBookFailure(error) {
     return {
-      type: 'FETCH_BOOK_FAILURE',
+      type: ACTION.FETCH_BOOK_FAILURE,
       error
     };
   },
   fetchComments(bookId) {
     return async dispatch => {
-      dispatch({ type: 'FETCH_COMMENTS' });
+      dispatch({ type: ACTION.FETCH_COMMENTS });
       try {
         getComments(bookId)
         .then((comments) => {
@@ -47,19 +48,19 @@ export const actionCreators = {
   },
   fetchCommentsSuccess(comments) {
     return {
-      type: 'FETCH_COMMENTS_SUCCESS',
+      type: ACTION.FETCH_COMMENTS_SUCCESS,
       comments
     };
   },
   fetchCommentsFailure(error) {
     return {
-      type: 'FETCH_COMMENTS_FAILURE',
+      type: ACTION.FETCH_COMMENTS_FAILURE,
       error
     };
   },
   fetchSuggestions(bookId) {
     return async dispatch => {
-      dispatch({ type: 'FETCH_SUGGESTIONS' });
+      dispatch({ type: ACTION.FETCH_SUGGESTIONS });
       try {
         getSuggestions(bookId)
         .then((suggestions) => {
@@ -75,13 +76,13 @@ export const actionCreators = {
   },
   fetchSuggestionsSuccess(suggestions) {
     return {
-      type: 'FETCH_SUGGESTIONS_SUCCESS',
+      type: ACTION.FETCH_SUGGESTIONS_SUCCESS,
       suggestions
     };
   },
   fetchSuggestionsFailure(error) {
     return {
-      type: 'FETCH_SUGGESTIONS_FAILURE',
+      type: ACTION.FETCH_SUGGESTIONS_FAILURE,
       error
     };
   }

@@ -1,14 +1,15 @@
 import { push } from 'react-router-redux'
 import Authenticate, { logOut as logOutService } from '../../services/AuthService.js'
+import { ACTION, PATH } from './constants.js'
 
 export const actionCreators = {
   login({email, password}) {
     return async dispatch => {
-      dispatch({ type: 'LOGIN' });
+      dispatch({ type: ACTION.LOGIN });
       try {
         Authenticate({email: email, password: password})
         .then((token) => {
-          dispatch(push('/dashboard'))
+          dispatch(push(PATH.DASHBOARD))
           dispatch(actionCreators.loginSuccess(token));
         })
         .catch((error) => {
@@ -21,21 +22,21 @@ export const actionCreators = {
   },
   loginSuccess(token) {
     return {
-      type: 'LOGIN_SUCCESS',
+      type: ACTION.LOGIN_SUCCESS,
       payload: { token }
     };
   },
   loginFailure(error) {
     return {
-      type: 'LOGIN_FAILURE',
+      type: ACTION.LOGIN_FAILURE,
       payload: { error }
     };
   },
   logOut() {
     return async dispatch => {
       logOutService()
-      dispatch({ type: 'LOG_OUT' });
-      dispatch(push('/login'));
+      dispatch({ type: ACTION.LOG_OUT });
+      dispatch(push(PATH.LOGIN));
     };
   }
 };
