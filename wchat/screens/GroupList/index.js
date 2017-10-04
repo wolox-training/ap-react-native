@@ -15,15 +15,22 @@ class GroupListContainer extends Component {
       id={item.id}
       name={item.name}
       imageUrl={item.imageUrl}
+      onPress={()=>{this.onSelect(item.id)}}
     />
   );
+  onSelect = ({id}) => {
+    this.props.navigation.navigate('Chat', {id: id })
+  }
+  onAdd = () => {
+    console.log("onAdd")
+  }
   render() {
     return (
       <ContactTable
         data={this.props.groups}
         renderItem={this.renderItem}
         addIcon={add_group_icon}
-        onAdd={()=>{}}
+        onAdd={this.onAdd}
         />
     );
   }

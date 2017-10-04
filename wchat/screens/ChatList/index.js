@@ -9,12 +9,19 @@ class ChatListContainer extends Component {
   componentWillMount() {
     this.props.dispatch(chatsActions.fetchChats())
   }
+  onSelect = ({id}) => {
+    this.props.navigation.navigate('Chat', {id: id })
+  }
+  onAdd = () => {
+    console.log("onAdd")
+  }
   render() {
     return (
       <ContactTable
         data={this.props.chats}
         addIcon={add_chat_icon}
-        onAdd={()=>{}}
+        onSelect={this.onSelect}
+        onAdd={this.onAdd}
         />
     );
   }

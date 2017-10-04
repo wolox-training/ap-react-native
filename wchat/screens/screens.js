@@ -5,11 +5,13 @@ import {
   chatsOptions,
   contactsOptions,
   groupsOptions,
-  homeOptions
+  homeOptions,
+  chatOptions
 } from './navigationOptions.js'
 import ChatList from './ChatList/index.js'
 import ContactList from './ContactList/index.js'
 import GroupList from './GroupList/index.js'
+import Chat from './Chat/index.js'
 import { mainColor } from '../shared/utils/colors.js'
 import styles from './styles.js'
 import store from '../redux/store.js'
@@ -41,6 +43,10 @@ const App = StackNavigator({
     screen: HomeTabNavigator,
     navigationOptions: homeOptions()
   },
+  Chat: {
+    screen: Chat,
+    navigationOptions: chatOptions()
+  }
 });
 
 export default main = () => (
