@@ -16,35 +16,29 @@ export function homeOptions() {
   }
 }
 
+const TabIcon = (tintColor, icon) => {
+  return ( <Image source={icon}
+    style={[styles.icon, {tintColor: tintColor}]} />
+  );
+}
+
 export function chatsOptions(){
   return {
     tabBarLabel: CHATS,
-    tabBarIcon: ({ tintColor }) => {
-      return ( <Image source={chats_icon}
-        style={[styles.icon, {tintColor: tintColor}]} />
-      );
-    }
+    tabBarIcon: ({ tintColor })=>TabIcon(tintColor, chats_icon)
   }
 }
 
 export function contactsOptions(){
   return {
     tabBarLabel: CONTACTS,
-    tabBarIcon: ({ tintColor }) => {
-      return ( <Image source={contacts_icon}
-        style={[styles.icon, {tintColor: tintColor}]} />
-      );
-    }
+    tabBarIcon: ({ tintColor })=>TabIcon(tintColor, contacts_icon)
   }
 }
 
 export function groupsOptions(){
   return {
     tabBarLabel: GROUPS,
-    tabBarIcon: ({ tintColor }) => {
-      return ( <Image source={groups_icon}
-        style={[styles.icon, {tintColor: tintColor}]} />
-      );
-    }
+    tabBarIcon: ({ tintColor })=>TabIcon(tintColor, groups_icon)
   }
 }
