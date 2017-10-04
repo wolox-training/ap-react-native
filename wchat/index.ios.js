@@ -4,21 +4,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import ContactList from './screens/ContactList/index.js'
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import App from './screens/screens.js'
 
-export default class wchat extends Component {
-  render() {
-    return (
-      <ContactList />
-    );
-  }
-}
-
-AppRegistry.registerComponent('wchat', () => wchat);
+AppRegistry.registerComponent('wchat', () => App);
