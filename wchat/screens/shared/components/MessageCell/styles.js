@@ -1,25 +1,23 @@
 import { AppRegistry, StyleSheet, Text, Image, View } from 'react-native';
-import { messageColor, separatorColor } from '../../../../shared/utils/colors.js'
+import { mainColor, secondaryColor } from '../../../../shared/utils/colors.js'
 
 const avatarSize = 44;
 
 const styles = StyleSheet.create({
   container: {
-   padding: 22,
-   borderRadius: 22,
-   backgroundColor: '#00F'
+   padding: 12,
+   borderRadius: 16,
+   backgroundColor: secondaryColor,
+   marginBottom: 10,
+   width: '85%'
   },
   text: {
-    fontSize: 14,
-    textAlign: 'left',
-    backgroundColor: '#0FF'
+    fontSize: 18,
+    textAlign: 'left'
   },
   time: {
-    fontSize: 16,
-    textAlign: 'left',
-    fontWeight: 'bold',
-    marginBottom: 4,
-    backgroundColor: '#FF0'
+    fontSize: 12,
+    textAlign: 'right'
   }
 })
 
