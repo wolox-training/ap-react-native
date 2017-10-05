@@ -42,3 +42,9 @@ export function groupsOptions(){
     tabBarIcon: ({ tintColor })=>TabIcon(tintColor, groups_icon)
   }
 }
+
+export function chatOptions(){
+  return {
+    title: 'Chat'
+  }
+}

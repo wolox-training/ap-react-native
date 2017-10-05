@@ -1,16 +1,44 @@
 import React, { Component } from 'react';
-import chats from '../../shared/assets/contacts.json'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import add_chat_icon from '../../shared/assets/add-chat.png';
 import ContactTable from '../shared/components/ContactTable/index.js'
+import { actionCreators as chatsActions } from '../../redux/chats/actions.js'
 
-export default class ChatListContainer extends Component {
+class ChatListContainer extends Component {
+  componentWillMount() {
+    this.props.dispatch(chatsActions.fetchChats())
+  }
+  handleSelect = ({id}) => {
+    this.props.navigation.navigate('Chat', { id })
+  }
+  handleAdd = () => {}
   render() {
     return (
       <ContactTable
-        data={chats}
+        data={this.props.chats}
         addIcon={add_chat_icon}
-        onAdd={()=>{}}
+        onSelect={this.handleSelect}
+        onAdd={this.handleAdd}
         />
     );
   }
 }
+
+ChatListContainer.propTypes = {
+  chats: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.number,
+            createdAt: PropTypes.number,
+            body: PropTypes.string,
+            senderId: PropTypes.number,
+            receiverId: PropTypes.number
+          })
+          )
+};
+
+const mapStateToProps = (state) => ({
+  chats: state.chats.list
+})
+
+export default connect(mapStateToProps,)(ChatListContainer);

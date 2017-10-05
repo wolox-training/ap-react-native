@@ -12,6 +12,7 @@ export default class ContactTable extends Component {
       id={item.id}
       title={item.username}
       avatarUrl={item.avatar}
+      onPress={()=>{this.props.onSelect(item.id)}}
     />
   );
   render() {

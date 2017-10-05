@@ -1,17 +1,20 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Provider } from 'react-redux';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import {
   chatsOptions,
   contactsOptions,
   groupsOptions,
-  homeOptions
+  homeOptions,
+  chatOptions
 } from './navigationOptions.js'
 import ChatList from './ChatList/index.js'
 import ContactList from './ContactList/index.js'
 import GroupList from './GroupList/index.js'
+import Chat from './Chat/index.js'
 import { mainColor } from '../shared/utils/colors.js'
 import styles from './styles.js'
+import store from '../redux/store.js'
 
 const HomeTabNavigator = TabNavigator({
     Chats: {
@@ -40,6 +43,14 @@ const App = StackNavigator({
     screen: HomeTabNavigator,
     navigationOptions: homeOptions()
   },
+  Chat: {
+    screen: Chat,
+    navigationOptions: chatOptions()
+  }
 });
 
-export default App
+export default main = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
