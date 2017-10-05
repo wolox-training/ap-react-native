@@ -18,7 +18,7 @@ class GroupListContainer extends Component {
       onPress={()=>{this.handleSelect(item.id)}}
     />
   );
-  handleSelect = ({id}) => {
+  handleSelect = (id) => {
     this.props.navigation.navigate('Chat', { id })
   }
   handleAdd = () => {}

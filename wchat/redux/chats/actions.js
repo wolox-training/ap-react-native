@@ -7,11 +7,11 @@ export const ACTION = {
 };
 
 export const actionCreators = {
-  fetchChats() {
+  fetchChats(ownerId, contactId) {
     return async dispatch => {
       dispatch({ type: ACTION.FETCH_CHATS });
       try {
-        getChats()
+        getChats(ownerId, contactId)
         .then((chats) => {
           dispatch(actionCreators.fetchChatsSuccess(chats));
         })

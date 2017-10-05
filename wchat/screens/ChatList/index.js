@@ -9,7 +9,7 @@ class ChatListContainer extends Component {
   componentWillMount() {
     this.props.dispatch(chatsActions.fetchChats())
   }
-  handleSelect = ({id}) => {
+  handleSelect = (id) => {
     this.props.navigation.navigate('Chat', { id })
   }
   handleAdd = () => {}
