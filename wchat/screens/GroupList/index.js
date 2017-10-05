@@ -15,11 +15,11 @@ class GroupListContainer extends Component {
       id={item.id}
       name={item.name}
       imageUrl={item.imageUrl}
-      onPress={()=>{this.handleSelect(item.id)}}
+      onPress={()=>{this.handleSelect(item)}}
     />
   );
-  handleSelect = (id) => {
-    this.props.navigation.navigate('Chat', { id })
+  handleSelect = (item) => {
+    this.props.navigation.navigate('Chat', { id: item.id, name: item.name })
   }
   handleAdd = () => {}
   render() {

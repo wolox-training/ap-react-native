@@ -12,9 +12,8 @@ class ChatContainer extends Component {
     this.props.dispatch(chatsActions.fetchChats(ownerId, contactId))
   }
   render() {
-    const contactId = this.props.navigation.state.params.id
     return (
-        <Chat chats={this.props.chats} ownerId={this.props.ownerId}/>
+      <Chat chats={this.props.chats} ownerId={this.props.ownerId}/>
     );
   }
 }

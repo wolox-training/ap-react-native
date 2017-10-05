@@ -12,6 +12,7 @@ export function homeOptions() {
     headerStyle: styles.navbar,
     headerTitleStyle: styles.navtitle,
     headerRight: SearchButton(),
+    headerBackTitle: null,
     title: 'W-Chat'
   }
 }
@@ -43,8 +44,10 @@ export function groupsOptions(){
   }
 }
 
-export function chatOptions(){
+export function chatOptions({navigation}){
   return {
-    title: 'Chat'
+    headerStyle: styles.navbar,
+    headerTitleStyle: styles.navtitle,
+    title: navigation.state.params.name,
   }
 }

@@ -45,7 +45,7 @@ const App = StackNavigator({
   },
   Chat: {
     screen: Chat,
-    navigationOptions: chatOptions()
+    navigationOptions: chatOptions
   }
 });
 

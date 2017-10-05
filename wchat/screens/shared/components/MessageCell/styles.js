@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 12,
-    textAlign: 'right'
+    textAlign: 'right',
+    color: '#555'
   }
 })
 
