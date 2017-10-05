@@ -9,19 +9,17 @@ class ContactListContainer extends Component {
   componentWillMount() {
     this.props.dispatch(contactsActions.fetchContacts())
   }
-  onSelect = ({id}) => {
+  handleSelect = ({id}) => {
     this.props.navigation.navigate('Chat', { id })
   }
-  onAdd = () => {
-    console.log("onAdd")
-  }
+  handleAdd = () => {}
   render() {
     return (
       <ContactTable
         data={this.props.contacts}
         addIcon={add_contact_icon}
-        onSelect={this.onSelect}
-        onAdd={this.onAdd}
+        onSelect={this.handleSelect}
+        onAdd={this.handleAdd}
         />
     );
   }
