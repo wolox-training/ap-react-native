@@ -10,7 +10,7 @@ class ChatListContainer extends Component {
     this.props.dispatch(chatsActions.fetchChats())
   }
   onSelect = ({id}) => {
-    this.props.navigation.navigate('Chat', {id: id })
+    this.props.navigation.navigate('Chat', { id })
   }
   onAdd = () => {
     console.log("onAdd")
@@ -27,18 +27,20 @@ class ChatListContainer extends Component {
   }
 }
 
-ChatListContainer.defaultProps = {
-  chats: []
-};
-
 ChatListContainer.propTypes = {
-  chats: PropTypes.array
+  chats: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.number,
+            createdAt: PropTypes.number,
+            body: PropTypes.string,
+            senderId: PropTypes.number,
+            receiverId: PropTypes.number
+          })
+          )
 };
 
 const mapStateToProps = (state) => ({
   chats: state.chats.list
 })
 
-export default connect(
-  mapStateToProps,
-)(ChatListContainer);
+export default connect(mapStateToProps,)(ChatListContainer);

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AppRegistry, Text, Image, View } from 'react-native';
 
-
-export default class Chat extends Component {
-  render() {
-    return (
-      <View >
-      <Text> Chat view </Text>
-      </View>
-    );
-  }
+export default function Chat() {
+  return (
+    <View >
+    <Text> Chat view </Text>
+    </View>
+  );
 }

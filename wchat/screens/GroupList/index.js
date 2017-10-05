@@ -19,7 +19,7 @@ class GroupListContainer extends Component {
     />
   );
   onSelect = ({id}) => {
-    this.props.navigation.navigate('Chat', {id: id })
+    this.props.navigation.navigate('Chat', { id })
   }
   onAdd = () => {
     console.log("onAdd")
@@ -36,18 +36,17 @@ class GroupListContainer extends Component {
   }
 }
 
-GroupListContainer.defaultProps = {
-  groups: []
-};
-
 GroupListContainer.propTypes = {
-  groups: PropTypes.array
+  groups: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.number,
+              name: PropTypes.string
+            })
+          )
 };
 
 const mapStateToProps = (state) => ({
   groups: state.groups.list
 })
 
-export default connect(
-  mapStateToProps,
-)(GroupListContainer);
+export default connect(mapStateToProps,)(GroupListContainer);

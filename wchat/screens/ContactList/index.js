@@ -10,7 +10,7 @@ class ContactListContainer extends Component {
     this.props.dispatch(contactsActions.fetchContacts())
   }
   onSelect = ({id}) => {
-    this.props.navigation.navigate('Chat', {id: id })
+    this.props.navigation.navigate('Chat', { id })
   }
   onAdd = () => {
     console.log("onAdd")
@@ -27,18 +27,18 @@ class ContactListContainer extends Component {
   }
 }
 
-ContactListContainer.defaultProps = {
-  contacts: []
-};
-
 ContactListContainer.propTypes = {
-  contacts: PropTypes.array
+  contacts: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.number,
+            username: PropTypes.string,
+            avatar: PropTypes.string
+          })
+          )
 };
 
 const mapStateToProps = (state) => ({
   contacts: state.contacts.list
 })
 
-export default connect(
-  mapStateToProps,
-)(ContactListContainer);
+export default connect(mapStateToProps,)(ContactListContainer);
