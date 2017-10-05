@@ -1,5 +1,10 @@
 import { getContacts } from '../../services/ChatService.js'
-import { ACTION } from './constants.js'
+
+export const ACTION = {
+  FETCH_CONTACTS : 'FETCH_CONTACTS',
+  FETCH_CONTACTS_SUCCESS: 'FETCH_CONTACTS_SUCCESS',
+  FETCH_CONTACTS_FAILURE : 'FETCH_CONTACTS_FAILURE',
+};
 
 export const actionCreators = {
   fetchContacts() {

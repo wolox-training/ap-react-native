@@ -1,4 +1,4 @@
-import { ACTION } from './constants.js'
+import { ACTION } from './actions.js'
 
 const initialState = {loading: false, list: []}
 

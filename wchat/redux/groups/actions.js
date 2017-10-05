@@ -1,5 +1,10 @@
 import { getGroups } from '../../services/ChatService.js'
-import { ACTION } from './constants.js'
+
+export const ACTION = {
+  FETCH_GROUPS : 'FETCH_GROUPS',
+  FETCH_GROUPS_SUCCESS: 'FETCH_GROUPS_SUCCESS',
+  FETCH_GROUPS_FAILURE : 'FETCH_GROUPS_FAILURE',
+};
 
 export const actionCreators = {
   fetchGroups() {
