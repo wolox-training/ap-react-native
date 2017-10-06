@@ -6,7 +6,11 @@ const styles = StyleSheet.create({
    padding: 12,
    marginBottom: 10,
    width: '85%',
-   borderRadius: 16
+   borderRadius: 16,
+   shadowColor: '#000',
+   shadowOffset: { width: 0, height: 2 },
+   shadowOpacity: 0.4,
+   shadowRadius: 1,
   },
   owner: {
    borderTopRightRadius: 4,
