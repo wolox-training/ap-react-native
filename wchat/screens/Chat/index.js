@@ -13,7 +13,8 @@ export const CHAT_TYPE = {
 class ChatContainer extends Component {
   state = {
     type: this.props.navigation.state.params.type,
-    interId: this.props.navigation.state.params.id
+    interId: this.props.navigation.state.params.id,
+    text: ''
   }
   componentWillMount() {
     if (this.state.type == CHAT_TYPE.CONTACT) {
@@ -29,6 +30,9 @@ class ChatContainer extends Component {
     this.setState({text})
   }
   handleSubmit = () => {
+    if (this.state.text.length <= 0)
+      return;
+
     var params = {
       senderId: this.props.ownerId,
       body: this.state.text
