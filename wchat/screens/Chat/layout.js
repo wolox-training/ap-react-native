@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, KeyboardAvoidingView } from 'react-native';
 import MessageCell from '../shared/components/MessageCell/index.js';
 import { formattedTime } from '../../shared/utils/date.js'
 import InputBox from './components/InputBox/index.js';
@@ -18,7 +18,7 @@ export default class Chat extends Component {
   );
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <FlatList
           data={this.props.chats}
           keyExtractor={this._keyExtractor}
@@ -28,7 +28,7 @@ export default class Chat extends Component {
         onChangeText={this.props.onChangeText}
         onSubmit={this.props.onSubmit}
       />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
