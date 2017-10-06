@@ -8,7 +8,6 @@ export default function InputBox(props) {
     <View style={styles.container}>
       <TextInput
         style={styles.textInput}
-        multiline={true}
         onChangeText={props.onChangeText}
         placeholder="Escribir mensaje..."
         onSubmitEditing={props.onSubmit}
