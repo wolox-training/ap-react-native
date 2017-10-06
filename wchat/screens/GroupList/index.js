@@ -22,7 +22,8 @@ class GroupListContainer extends Component {
   handleSelect = (item) => {
     this.props.navigation.navigate('Chat', { id: item.id,
                                              name: item.name,
-                                             type: CHAT_TYPE.GROUP })
+                                             type: CHAT_TYPE.GROUP,
+                                             imageSource: item.imageUrl })
   }
   handleAdd = () => {}
   render() {

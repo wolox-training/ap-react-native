@@ -13,7 +13,8 @@ class ContactListContainer extends Component {
   handleSelect = (item) => {
     this.props.navigation.navigate('Chat', { id: item.id,
                                              name: item.username,
-                                             type: CHAT_TYPE.CONTACT })
+                                             type: CHAT_TYPE.CONTACT,
+                                             imageSource: item.avatar })
   }
   handleAdd = () => {}
   render() {

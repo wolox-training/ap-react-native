@@ -5,6 +5,7 @@ import { CHATS, CONTACTS, GROUPS } from './strings.js';
 import chats_icon from '../shared/assets/chats.png';
 import contacts_icon from '../shared/assets/contacts.png';
 import groups_icon from '../shared/assets/groups.png';
+import ChatHeader from './shared/components/ChatHeader/index.js'
 import styles from './styles.js';
 
 export function homeOptions() {
@@ -48,6 +49,7 @@ export function chatOptions({navigation}){
   return {
     headerStyle: styles.navbar,
     headerTitleStyle: styles.navtitle,
-    title: navigation.state.params.name,
+    headerTitle: ChatHeader(navigation.state.params.name,
+                            navigation.state.params.imageSource)
   }
 }

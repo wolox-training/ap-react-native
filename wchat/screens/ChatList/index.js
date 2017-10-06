@@ -21,7 +21,8 @@ class ChatListContainer extends Component {
   onSelect = ({id}) => {
     this.props.navigation.navigate('Chat', { id: item.id,
                                              name: item.username,
-                                             type: CHAT_TYPE.CONTACT })
+                                             type: CHAT_TYPE.CONTACT,
+                                             imageSource: item.avatar })
   }
   onAdd = () => { }
   render() {
