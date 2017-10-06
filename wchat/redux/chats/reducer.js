@@ -20,6 +20,23 @@ const chats = (state = initialState, action) => {
         ...state,
         loading: false
       }
+    case ACTION.SUBMIT_CHAT:
+      return {
+        ...state,
+        loading: true
+      }
+    case ACTION.SUBMIT_CHAT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        list: [...(state.list), action.chat]
+      }
+    case ACTION.SUBMIT_CHAT_FAILURE:
+      return {
+        ...state,
+        loading: false
+      }
+
     default:
       return state
   }

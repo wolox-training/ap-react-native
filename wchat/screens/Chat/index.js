@@ -11,9 +11,25 @@ class ChatContainer extends Component {
     const ownerId = this.props.ownerId
     this.props.dispatch(chatsActions.fetchChats(ownerId, contactId))
   }
+  handleChangeText = (text) => {
+    this.setState({text})
+  }
+  handleSubmit = () => {
+    const params = {
+      senderId: this.props.ownerId,
+      receiverId: this.props.navigation.state.params.id,
+      body: this.state.text
+    }
+    this.props.dispatch(chatsActions.submitChat(params))
+  }
   render() {
     return (
-      <Chat chats={this.props.chats} ownerId={this.props.ownerId}/>
+      <Chat
+        chats={this.props.chats}
+        ownerId={this.props.ownerId}
+        onChangeText={this.handleChangeText}
+        onSubmit={this.handleSubmit}
+      />
     );
   }
 }

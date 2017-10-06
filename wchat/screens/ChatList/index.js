@@ -9,36 +9,42 @@ class ChatListContainer extends Component {
   componentWillMount() {
     this.props.dispatch(chatsActions.fetchChats())
   }
-  handleSelect = (item) => {
-    this.props.navigation.navigate('Chat', { id: item.id, name: item.username })
+  renderItem = ({item}) => (
+    <ContactCell
+      id={item.id}
+      title={item.username}
+      avatarUrl={item.avatar}
+      onPress={()=>{this.props.onSelect(item.id)}}
+    />
+  );
+  onSelect = ({id}) => {
+    this.props.navigation.navigate('Chat', {id: id })
   }
-  handleAdd = () => {}
+  onAdd = () => { }
   render() {
     return (
       <ContactTable
         data={this.props.chats}
         addIcon={add_chat_icon}
-        onSelect={this.handleSelect}
-        onAdd={this.handleAdd}
+        onSelect={this.onSelect}
+        onAdd={this.onAdd}
         />
     );
   }
 }
 
+ChatListContainer.defaultProps = {
+  chats: []
+};
+
 ChatListContainer.propTypes = {
-  chats: PropTypes.arrayOf(
-          PropTypes.shape({
-            id: PropTypes.number,
-            createdAt: PropTypes.number,
-            body: PropTypes.string,
-            senderId: PropTypes.number,
-            receiverId: PropTypes.number
-          })
-          )
+  chats: PropTypes.array
 };
 
 const mapStateToProps = (state) => ({
   chats: state.chats.list
 })
 
-export default connect(mapStateToProps,)(ChatListContainer);
+export default connect(
+  mapStateToProps,
+)(ChatListContainer);

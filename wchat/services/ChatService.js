@@ -6,7 +6,6 @@ export function getChats(ownerId, contactId) {
   '&senderId=' + contactId +
   '&receiverId=' + ownerId
   return axios.get(path).then((response) => {
-    console.log('got response:' + response)
     return response.data;
   })
 }
@@ -19,6 +18,12 @@ export function getContacts() {
 
 export function getGroups() {
   return axios.get('groups').then((response) => {
+    return response.data;
+  })
+}
+
+export function sendChat(params) {
+  return axios.post('messages', {params}).then((response) => {
     return response.data;
   })
 }
