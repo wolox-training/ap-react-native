@@ -4,13 +4,16 @@ import { connect } from 'react-redux'
 import add_contact_icon from '../../shared/assets/add-contact.png';
 import ContactTable from '../shared/components/ContactTable/index.js'
 import { actionCreators as contactsActions } from '../../redux/contacts/actions.js'
+import { CHAT_TYPE } from '../Chat/index.js'
 
 class ContactListContainer extends Component {
   componentWillMount() {
     this.props.dispatch(contactsActions.fetchContacts())
   }
   handleSelect = (item) => {
-    this.props.navigation.navigate('Chat', { id: item.id, name: item.username })
+    this.props.navigation.navigate('Chat', { id: item.id,
+                                             name: item.username,
+                                             type: CHAT_TYPE.CONTACT })
   }
   handleAdd = () => {}
   render() {

@@ -5,6 +5,7 @@ import add_group_icon from '../../shared/assets/add-group.png';
 import GroupCell from './components/GroupCell/index.js'
 import ContactTable from '../shared/components/ContactTable/index.js'
 import { actionCreators as groupsActions } from '../../redux/groups/actions.js'
+import { CHAT_TYPE } from '../Chat/index.js'
 
 class GroupListContainer extends Component {
   componentWillMount() {
@@ -19,7 +20,9 @@ class GroupListContainer extends Component {
     />
   );
   handleSelect = (item) => {
-    this.props.navigation.navigate('Chat', { id: item.id, name: item.name })
+    this.props.navigation.navigate('Chat', { id: item.id,
+                                             name: item.name,
+                                             type: CHAT_TYPE.GROUP })
   }
   handleAdd = () => {}
   render() {

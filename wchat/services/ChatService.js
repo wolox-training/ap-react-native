@@ -10,6 +10,12 @@ export function getChats(ownerId, contactId) {
   })
 }
 
+export function getGroupChats(groupId) {
+  return axios.get('messages', { params: { groupId } }).then((response) => {
+    return response.data;
+  })
+}
+
 export function getContacts() {
   return axios.get('users').then((response) => {
     return response.data;

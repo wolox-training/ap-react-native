@@ -1,4 +1,4 @@
-import { getChats, sendChat } from '../../services/ChatService.js'
+import { getChats, sendChat, getGroupChats } from '../../services/ChatService.js'
 
 export const ACTION = {
   FETCH_CHATS : 'FETCH_CHATS',
@@ -15,6 +15,22 @@ export const actionCreators = {
       dispatch({ type: ACTION.FETCH_CHATS });
       try {
         getChats(ownerId, contactId)
+        .then((chats) => {
+          dispatch(actionCreators.fetchChatsSuccess(chats));
+        })
+        .catch((error) => {
+          throw new Error(error);
+        });
+      } catch (e) {
+        dispatch(actionCreators.fetchChatsFailure(e));
+      }
+    };
+  },
+  fetchGroupChats(groupId) {
+    return async dispatch => {
+      dispatch({ type: ACTION.FETCH_CHATS });
+      try {
+        getGroupChats(groupId)
         .then((chats) => {
           dispatch(actionCreators.fetchChatsSuccess(chats));
         })

@@ -5,11 +5,22 @@ import { connect } from 'react-redux'
 import Chat from './layout.js'
 import { actionCreators as chatsActions } from '../../redux/chats/actions.js'
 
+export const CHAT_TYPE = {
+  CONTACT: 'CONTACT',
+  GROUP: 'GROUP'
+}
+
 class ChatContainer extends Component {
   componentWillMount() {
-    const contactId = this.props.navigation.state.params.id
-    const ownerId = this.props.ownerId
-    this.props.dispatch(chatsActions.fetchChats(ownerId, contactId))
+    const type = this.props.navigation.state.params.type
+    if (type == CHAT_TYPE.CONTACT) {
+      const contactId = this.props.navigation.state.params.id
+      const ownerId = this.props.ownerId
+      this.props.dispatch(chatsActions.fetchChats(ownerId, contactId))
+    } else {
+      const groupId = this.props.navigation.state.params.id
+      this.props.dispatch(chatsActions.fetchGroupChats(groupId))
+    }
   }
   handleChangeText = (text) => {
     this.setState({text})
