@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
 import MessageCell from '../shared/components/MessageCell/index.js';
 import { formattedTime } from '../../shared/utils/date.js'
+import InputBox from './components/InputBox/index.js';
 import styles from './styles.js'
 
 export default class Chat extends Component {
+  state = {text: ""}
   _keyExtractor = (item, index) => item.id;
   _renderItem = ({item}) => (
     <MessageCell
@@ -22,6 +24,10 @@ export default class Chat extends Component {
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
+      <InputBox
+        onChangeText={this.props.onChangeText}
+        onSubmit={this.props.onSubmit}
+      />
       </View>
     );
   }
