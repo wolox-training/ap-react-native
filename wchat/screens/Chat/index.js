@@ -11,25 +11,32 @@ export const CHAT_TYPE = {
 }
 
 class ChatContainer extends Component {
+  state = {
+    type: this.props.navigation.state.params.type,
+    interId: this.props.navigation.state.params.id
+  }
   componentWillMount() {
-    const type = this.props.navigation.state.params.type
-    if (type == CHAT_TYPE.CONTACT) {
-      const contactId = this.props.navigation.state.params.id
+    if (this.state.type == CHAT_TYPE.CONTACT) {
       const ownerId = this.props.ownerId
-      this.props.dispatch(chatsActions.fetchChats(ownerId, contactId))
+      this.props.dispatch(
+        chatsActions.fetchChats(this.props.ownerId, this.state.interId)
+      )
     } else {
-      const groupId = this.props.navigation.state.params.id
-      this.props.dispatch(chatsActions.fetchGroupChats(groupId))
+      this.props.dispatch(chatsActions.fetchGroupChats(this.state.interId))
     }
   }
   handleChangeText = (text) => {
     this.setState({text})
   }
   handleSubmit = () => {
-    const params = {
+    var params = {
       senderId: this.props.ownerId,
-      receiverId: this.props.navigation.state.params.id,
       body: this.state.text
+    }
+    if (this.state.type == CHAT_TYPE.CONTACT) {
+      params = {...params, receiverId: this.state.interId}
+    } else {
+      params = {...params, groupId: this.state.interId}
     }
     this.props.dispatch(chatsActions.submitChat(params))
   }
